@@ -1,0 +1,9 @@
+{
+  "appId": "com.scar4r.centralquiz",
+  "appName": "الجهاز المركزي",
+  "webDir": "www",
+  "server": {
+    "url": "https://precious-haupia-878a6c.netlify.app",
+    "cleartext": true
+  }
+}
