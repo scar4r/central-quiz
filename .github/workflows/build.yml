@@ -10,6 +10,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -26,23 +32,17 @@ jobs:
       - name: Install dependencies
         run: |
           npm init -y
-          npm install @capacitor/cli @capacitor/core @capacitor/android
+          npm install @capacitor/cli@5.7.4 @capacitor/core@5.7.4 @capacitor/android@5.7.4
 
       - name: Init Capacitor
         run: |
-          npx cap init "الجهاز المركزي" "com.scar4r.centralquiz" --web-dir www
+          npx cap init "quiz" "com.scar4r.centralquiz" --web-dir www
 
       - name: Add Android
         run: npx cap add android
 
       - name: Sync
         run: npx cap sync android
-
-      - name: Setup Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '21'
 
       - name: Build APK
         run: |
